@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { SetupFieldType } from '../types.ts';
+import type { SetupFieldType } from '../types.ts';
 import { mockSetupDetails, mockImageURL, mockImagePrompt } from './mockData.ts';
 
 let ai: GoogleGenAI;

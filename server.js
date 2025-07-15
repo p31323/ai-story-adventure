@@ -1,33 +1,46 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 // This endpoint generates a configuration script on the fly.
-// It injects the API_KEY from the server's environment variables into the browser's window object.
 app.get('/config.js', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
-    // WARNING: This exposes the API key to the client-side. This is a security risk.
-    // For production applications, a backend proxy is the recommended approach.
+    // WARNING: This exposes the API key to the client-side.
     const apiKey = process.env.API_KEY || '';
     res.send(`window.GEMINI_API_KEY = "${apiKey}";`);
 });
 
-// Serve all static files from the root directory and set correct headers.
-app.use(express.static(path.join(__dirname, '/'), {
-    setHeaders: (res, filePath) => {
-        // Set correct Content-Type for .ts and .tsx files.
-        // This is crucial for in-browser transpilation to work correctly.
-        if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) {
-            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-        }
+// Custom middleware to correctly serve .ts/.tsx files
+// This is crucial to prevent the SPA fallback from intercepting these requests.
+app.use((req, res, next) => {
+    if (req.path.endsWith('.ts') || req.path.endsWith('.tsx')) {
+        const filePath = path.join(__dirname, req.path);
+        // Check if file exists before attempting to serve
+        fs.access(filePath, fs.constants.F_OK, (err) => {
+            if (!err) {
+                // File exists, serve it with the correct Content-Type
+                res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+                res.sendFile(filePath);
+            } else {
+                // File does not exist, pass to the next middleware
+                next();
+            }
+        });
+    } else {
+        // Not a .ts or .tsx file, pass to the next middleware
+        next();
     }
-}));
+});
 
 
-// For any route that is not a recognized file, serve index.html.
-// This is important for single-page applications that handle their own routing.
+// Serve other static files from the root directory
+app.use(express.static(path.join(__dirname)));
+
+// For any other route, serve index.html as a fallback.
+// This should be the last middleware.
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });

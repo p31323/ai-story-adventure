@@ -7,7 +7,7 @@ import CharacterInfoModal from './components/CharacterInfoModal.tsx';
 import { startChatSession, streamMessage, getInnerThoughts, generatePlotChoices } from './services/geminiService.ts';
 import { loadGames, saveGame, deleteGame } from './services/storageService.ts';
 import { parseGeminiError } from './services/errorService.ts';
-import { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types.ts';
+import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types.ts';
 import { LoadingSpinner } from './components/LoadingSpinner.tsx';
 
 const getApiKey = (): string | undefined => (window as any).GEMINI_API_KEY;
