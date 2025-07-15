@@ -15,6 +15,16 @@ app.get('/config.js', (req, res) => {
     res.send(`window.GEMINI_API_KEY = "${apiKey}";`);
 });
 
+// Middleware to set correct Content-Type for .ts and .tsx files.
+// This is crucial for in-browser transpilation to work correctly on servers
+// that might not have a default MIME type for these extensions.
+app.use((req, res, next) => {
+    if (req.path.endsWith('.ts') || req.path.endsWith('.tsx')) {
+        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    }
+    next();
+});
+
 // Serve all other static files from the root directory.
 // This includes index.html, the 'components', 'services' folders, etc.
 app.use(express.static(path.join(__dirname, '/')));

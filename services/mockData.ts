@@ -1,4 +1,5 @@
-import type { SetupFieldType, InnerThoughts, PlotChoice } from '../types';
+
+import type { SetupFieldType, InnerThoughts, PlotChoice } from '../types.ts';
 
 // MOCK RESPONSES
 export const mockImageURL = 'https://picsum.photos/seed/mock/1920/1080';

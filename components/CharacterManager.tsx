@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
-import { UsersIcon, CloseIcon, TrashIcon } from './IconComponents';
-import type { SecondaryCharacter } from '../types';
+import { UsersIcon, CloseIcon, TrashIcon } from './IconComponents.tsx';
+import type { SecondaryCharacter } from '../types.ts';
 
 interface CharacterManagerProps {
   characters: SecondaryCharacter[];

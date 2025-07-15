@@ -1,14 +1,14 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { SetupForm } from './components/SetupForm';
-import GameScreen from './components/GameScreen';
-import SaveLoadModal from './components/SaveLoadModal';
-import CharacterInfoModal from './components/CharacterInfoModal';
-import { startChatSession, streamMessage, getInnerThoughts, generatePlotChoices } from './services/geminiService';
-import { loadGames, saveGame, deleteGame } from './services/storageService';
-import { parseGeminiError } from './services/errorService';
-import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types';
-import { LoadingSpinner } from './components/LoadingSpinner';
+import { SetupForm } from './components/SetupForm.tsx';
+import GameScreen from './components/GameScreen.tsx';
+import SaveLoadModal from './components/SaveLoadModal.tsx';
+import CharacterInfoModal from './components/CharacterInfoModal.tsx';
+import { startChatSession, streamMessage, getInnerThoughts, generatePlotChoices } from './services/geminiService.ts';
+import { loadGames, saveGame, deleteGame } from './services/storageService.ts';
+import { parseGeminiError } from './services/errorService.ts';
+import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types.ts';
+import { LoadingSpinner } from './components/LoadingSpinner.tsx';
 
 const getApiKey = (): string | undefined => (window as any).GEMINI_API_KEY;
 

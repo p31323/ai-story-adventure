@@ -1,4 +1,5 @@
-import type { SaveData } from '../types';
+
+import type { SaveData } from '../types.ts';
 
 const SAVE_KEY = 'ai-story-adventure-saves';
 const MAX_SAVES = 5;

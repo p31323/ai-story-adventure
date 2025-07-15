@@ -1,6 +1,7 @@
+
 import React from 'react';
-import type { SaveData } from '../types';
-import { CloseIcon, TrashIcon, ArrowUpTrayIcon, ArrowDownTrayIcon } from './IconComponents';
+import type { SaveData } from '../types.ts';
+import { CloseIcon, TrashIcon, ArrowUpTrayIcon, ArrowDownTrayIcon } from './IconComponents.tsx';
 
 interface SaveLoadModalProps {
   mode: 'save' | 'load';

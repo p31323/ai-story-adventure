@@ -1,10 +1,11 @@
+
 import React, { useState, useRef, useEffect } from 'react';
-import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, PlotChoice } from '../types';
-import ChatBubble from './ChatBubble';
-import { LoadingSpinner } from './LoadingSpinner';
-import { SendIcon, ResetIcon, UsersIcon, MagicWandIcon, UndoIcon, ArrowUpTrayIcon, UserCircleIcon } from './IconComponents';
-import InnerThoughtsModal from './InnerThoughtsModal';
-import CharacterManager from './CharacterManager';
+import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, PlotChoice } from '../types.ts';
+import ChatBubble from './ChatBubble.tsx';
+import { LoadingSpinner } from './LoadingSpinner.tsx';
+import { SendIcon, ResetIcon, UsersIcon, MagicWandIcon, UndoIcon, ArrowUpTrayIcon, UserCircleIcon } from './IconComponents.tsx';
+import InnerThoughtsModal from './InnerThoughtsModal.tsx';
+import CharacterManager from './CharacterManager.tsx';
 
 
 interface GameScreenProps {

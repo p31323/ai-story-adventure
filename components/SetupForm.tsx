@@ -1,8 +1,9 @@
+
 import React, { useState, useRef } from 'react';
-import type { Scenario, SetupFieldType, ModelQuality } from '../types';
-import { ImageIcon, MagicWandIcon, PaintBrushIcon, ArrowDownTrayIcon, ArrowUpTrayIcon } from './IconComponents';
-import { generateSetupDetails, generateImage, generateImageFromContext } from '../services/setupService';
-import { parseGeminiError } from '../services/errorService';
+import type { Scenario, SetupFieldType, ModelQuality } from '../types.ts';
+import { ImageIcon, MagicWandIcon, PaintBrushIcon, ArrowDownTrayIcon, ArrowUpTrayIcon } from './IconComponents.tsx';
+import { generateSetupDetails, generateImage, generateImageFromContext } from '../services/setupService.ts';
+import { parseGeminiError } from '../services/errorService.ts';
 
 interface SetupFormProps {
   onStartGame: (scenario: Scenario) => void;
