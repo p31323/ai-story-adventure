@@ -1,5 +1,4 @@
-
-import { SaveData } from '../types';
+import type { SaveData } from '../types';
 
 const SAVE_KEY = 'ai-story-adventure-saves';
 const MAX_SAVES = 5;

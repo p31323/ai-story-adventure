@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect } from 'react';
 import { SetupForm } from './components/SetupForm';
 import GameScreen from './components/GameScreen';
@@ -7,7 +6,7 @@ import CharacterInfoModal from './components/CharacterInfoModal';
 import { startChatSession, streamMessage, getInnerThoughts, generatePlotChoices } from './services/geminiService';
 import { loadGames, saveGame, deleteGame } from './services/storageService';
 import { parseGeminiError } from './services/errorService';
-import { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types';
+import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, SecondaryCharacter, PlotChoice, SaveData } from './types';
 import { LoadingSpinner } from './components/LoadingSpinner';
 
 const getApiKey = (): string | undefined => (window as any).GEMINI_API_KEY;

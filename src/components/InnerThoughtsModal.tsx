@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { InsightIcon, CloseIcon } from './IconComponents';
-import { InnerThoughts } from '../types';
+import type { InnerThoughts } from '../types';
 
 interface InnerThoughtsModalProps {
   thoughts: InnerThoughts;

@@ -1,4 +1,3 @@
-
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -9,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Endpoint to provide API key
+// Endpoint to provide API key to the frontend
 app.get('/config.js', (req, res) => {
     res.setHeader('Content-Type', 'application/javascript');
     const apiKey = process.env.API_KEY || '';
@@ -19,7 +18,7 @@ app.get('/config.js', (req, res) => {
 // Serve the static files from the Vite build directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// For any other route, serve index.html as a fallback for the SPA
+// For any other route, serve index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });

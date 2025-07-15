@@ -1,6 +1,5 @@
-
 import { GoogleGenAI, Chat, Type } from "@google/genai";
-import { Scenario, ResponseLength, ChatMessage, InnerThoughts, PlotChoice } from '../types';
+import type { Scenario, ResponseLength, ChatMessage, InnerThoughts, PlotChoice } from '../types';
 import { mockStreamResponse, mockInnerThoughts, mockPlotChoices } from './mockData';
 
 let ai: GoogleGenAI;

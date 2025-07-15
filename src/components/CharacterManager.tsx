@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { UsersIcon, CloseIcon, TrashIcon } from './IconComponents';
-import { SecondaryCharacter } from '../types';
+import type { SecondaryCharacter } from '../types';
 
 interface CharacterManagerProps {
   characters: SecondaryCharacter[];

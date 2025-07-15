@@ -1,6 +1,5 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { Scenario, ChatMessage, ResponseLength, InnerThoughts, PlotChoice } from '../types';
+import type { Scenario, ChatMessage, ResponseLength, InnerThoughts, PlotChoice } from '../types';
 import ChatBubble from './ChatBubble';
 import { LoadingSpinner } from './LoadingSpinner';
 import { SendIcon, ResetIcon, UsersIcon, MagicWandIcon, UndoIcon, ArrowUpTrayIcon, UserCircleIcon } from './IconComponents';

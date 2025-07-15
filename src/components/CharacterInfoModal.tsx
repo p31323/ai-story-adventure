@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { UserCircleIcon, CloseIcon } from './IconComponents';
-import { Scenario, InnerThoughts } from '../types';
+import type { Scenario, InnerThoughts } from '../types';
 
 interface CharacterInfoModalProps {
   scenario: Scenario;

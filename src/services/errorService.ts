@@ -1,4 +1,3 @@
-
 export const parseGeminiError = (error: unknown): string => {
     // Convert the unknown error to a string for consistent processing.
     const message = error instanceof Error ? error.message : String(error);

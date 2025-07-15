@@ -1,6 +1,5 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
-import { SetupFieldType } from '../types';
+import type { SetupFieldType } from '../types';
 import { mockSetupDetails, mockImageURL, mockImagePrompt } from './mockData';
 
 let ai: GoogleGenAI;
