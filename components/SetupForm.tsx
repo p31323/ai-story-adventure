@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import type { Scenario, SetupFieldType, ModelQuality } from '../types.ts';
+import { Scenario, SetupFieldType, ModelQuality } from '../types.ts';
 import { ImageIcon, MagicWandIcon, PaintBrushIcon, ArrowDownTrayIcon, ArrowUpTrayIcon } from './IconComponents.tsx';
 import { generateSetupDetails, generateImage, generateImageFromContext } from '../services/setupService.ts';
 import { parseGeminiError } from '../services/errorService.ts';

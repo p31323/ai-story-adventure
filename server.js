@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 
@@ -15,19 +14,17 @@ app.get('/config.js', (req, res) => {
     res.send(`window.GEMINI_API_KEY = "${apiKey}";`);
 });
 
-// Middleware to set correct Content-Type for .ts and .tsx files.
-// This is crucial for in-browser transpilation to work correctly on servers
-// that might not have a default MIME type for these extensions.
-app.use((req, res, next) => {
-    if (req.path.endsWith('.ts') || req.path.endsWith('.tsx')) {
-        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+// Serve all static files from the root directory and set correct headers.
+app.use(express.static(path.join(__dirname, '/'), {
+    setHeaders: (res, filePath) => {
+        // Set correct Content-Type for .ts and .tsx files.
+        // This is crucial for in-browser transpilation to work correctly.
+        if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) {
+            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+        }
     }
-    next();
-});
+}));
 
-// Serve all other static files from the root directory.
-// This includes index.html, the 'components', 'services' folders, etc.
-app.use(express.static(path.join(__dirname, '/')));
 
 // For any route that is not a recognized file, serve index.html.
 // This is important for single-page applications that handle their own routing.

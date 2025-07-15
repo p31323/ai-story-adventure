@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { ChatMessage } from '../types.ts';
+import { ChatMessage } from '../types.ts';
 import { InsightIcon } from './IconComponents.tsx';
 
 interface ChatBubbleProps {
