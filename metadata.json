@@ -1,0 +1,6 @@
+{
+  "name": "AI 故事接龍",
+  "description": "一款動態文字冒險遊戲，您可以自訂世界觀、角色和劇情，並與 AI 一起創造獨一無二的故事。",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
